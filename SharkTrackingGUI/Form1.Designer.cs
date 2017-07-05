@@ -20,6 +20,44 @@
             base.Dispose(disposing);
         }
 
+        private void InitializeChart()
+        {
+            // Set the chart area
+            this.TrackPlot.ChartAreas["ChartArea1"].AxisX.LabelStyle.Format = "#.##";
+            this.TrackPlot.ChartAreas["ChartArea1"].AxisX.MajorGrid.LineWidth = 0;
+            this.TrackPlot.ChartAreas["ChartArea1"].AxisY.MajorGrid.LineWidth = 0;
+            // Add series
+            this.TrackPlot.Series.Add("Shark").YValueMembers = "Shark";
+            this.TrackPlot.Series["Shark"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            this.TrackPlot.Series["Shark"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            this.TrackPlot.Series["Shark"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            TrackPlot.Series["Shark"].MarkerColor = System.Drawing.Color.Blue;
+            TrackPlot.Series["Shark"].MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+
+            TrackPlot.Series.Add("SharkRecent").YValueMembers = "SharkRecent";
+            TrackPlot.Series["SharkRecent"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            TrackPlot.Series["SharkRecent"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            TrackPlot.Series["SharkRecent"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            TrackPlot.Series["SharkRecent"].MarkerColor = System.Drawing.Color.Purple;
+            TrackPlot.Series["SharkRecent"].MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            TrackPlot.Series["SharkRecent"].MarkerSize = 8;
+
+            this.TrackPlot.Series.Add("AUV").YValueMembers = "AUV";
+            this.TrackPlot.Series["AUV"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            this.TrackPlot.Series["AUV"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            this.TrackPlot.Series["AUV"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            TrackPlot.Series["AUV"].MarkerColor = System.Drawing.Color.Orange;
+            TrackPlot.Series["AUV"].MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+
+            TrackPlot.Series.Add("AUVRecent").YValueMembers = "AUVRecent";
+            TrackPlot.Series["AUVRecent"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+            TrackPlot.Series["AUVRecent"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            TrackPlot.Series["AUVRecent"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            TrackPlot.Series["AUVRecent"].MarkerColor = System.Drawing.Color.OrangeRed;
+            TrackPlot.Series["AUVRecent"].MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            TrackPlot.Series["AUVRecent"].MarkerSize = 8;
+        }
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -28,9 +66,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,10 +78,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblSharkX = new System.Windows.Forms.Label();
+            this.lblSharkY = new System.Windows.Forms.Label();
+            this.lblAUVY = new System.Windows.Forms.Label();
+            this.lblAUVX = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -61,12 +98,23 @@
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.lstFront = new System.Windows.Forms.ListBox();
+            this.lstBack = new System.Windows.Forms.ListBox();
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.TrackPlot = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.calibrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadXMLFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.butFront = new System.Windows.Forms.Button();
+            this.calibrateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadXMLFileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.TrackPlot)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -158,41 +206,41 @@
             this.label9.TabIndex = 9;
             this.label9.Text = "180";
             // 
-            // label10
+            // lblSharkX
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(524, 121);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(16, 17);
-            this.label10.TabIndex = 10;
-            this.label10.Text = "0";
+            this.lblSharkX.AutoSize = true;
+            this.lblSharkX.Location = new System.Drawing.Point(524, 121);
+            this.lblSharkX.Name = "lblSharkX";
+            this.lblSharkX.Size = new System.Drawing.Size(16, 17);
+            this.lblSharkX.TabIndex = 10;
+            this.lblSharkX.Text = "0";
             // 
-            // label11
+            // lblSharkY
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(524, 148);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(16, 17);
-            this.label11.TabIndex = 11;
-            this.label11.Text = "0";
+            this.lblSharkY.AutoSize = true;
+            this.lblSharkY.Location = new System.Drawing.Point(524, 148);
+            this.lblSharkY.Name = "lblSharkY";
+            this.lblSharkY.Size = new System.Drawing.Size(16, 17);
+            this.lblSharkY.TabIndex = 11;
+            this.lblSharkY.Text = "0";
             // 
-            // label12
+            // lblAUVY
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(165, 92);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(16, 17);
-            this.label12.TabIndex = 15;
-            this.label12.Text = "0";
+            this.lblAUVY.AutoSize = true;
+            this.lblAUVY.Location = new System.Drawing.Point(165, 92);
+            this.lblAUVY.Name = "lblAUVY";
+            this.lblAUVY.Size = new System.Drawing.Size(16, 17);
+            this.lblAUVY.TabIndex = 15;
+            this.lblAUVY.Text = "0";
             // 
-            // label13
+            // lblAUVX
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(165, 65);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(16, 17);
-            this.label13.TabIndex = 14;
-            this.label13.Text = "0";
+            this.lblAUVX.AutoSize = true;
+            this.lblAUVX.Location = new System.Drawing.Point(165, 65);
+            this.lblAUVX.Name = "lblAUVX";
+            this.lblAUVX.Size = new System.Drawing.Size(16, 17);
+            this.lblAUVX.TabIndex = 14;
+            this.lblAUVX.Text = "0";
             // 
             // label14
             // 
@@ -268,7 +316,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(687, 29);
+            this.button1.Location = new System.Drawing.Point(861, 30);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(191, 53);
             this.button1.TabIndex = 22;
@@ -277,7 +325,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(687, 88);
+            this.button2.Location = new System.Drawing.Point(861, 85);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(191, 53);
             this.button2.TabIndex = 23;
@@ -340,24 +388,24 @@
             this.label27.TabIndex = 28;
             this.label27.Text = "Temperature";
             // 
-            // listBox1
+            // lstFront
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(687, 254);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(303, 84);
-            this.listBox1.TabIndex = 30;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.lstFront.FormattingEnabled = true;
+            this.lstFront.ItemHeight = 16;
+            this.lstFront.Location = new System.Drawing.Point(687, 254);
+            this.lstFront.Name = "lstFront";
+            this.lstFront.Size = new System.Drawing.Size(506, 84);
+            this.lstFront.TabIndex = 30;
+            this.lstFront.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
-            // listBox2
+            // lstBack
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 16;
-            this.listBox2.Location = new System.Drawing.Point(687, 419);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(303, 84);
-            this.listBox2.TabIndex = 31;
+            this.lstBack.FormattingEnabled = true;
+            this.lstBack.ItemHeight = 16;
+            this.lstBack.Location = new System.Drawing.Point(687, 419);
+            this.lstBack.Name = "lstBack";
+            this.lstBack.Size = new System.Drawing.Size(506, 84);
+            this.lstBack.TabIndex = 31;
             // 
             // label28
             // 
@@ -381,37 +429,113 @@
             // 
             // TrackPlot
             // 
-            chartArea1.Name = "ChartArea1";
-            this.TrackPlot.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.TrackPlot.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.TrackPlot.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.TrackPlot.Legends.Add(legend2);
             this.TrackPlot.Location = new System.Drawing.Point(65, 203);
             this.TrackPlot.Name = "TrackPlot";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
-            series1.IsVisibleInLegend = false;
-            series1.IsXValueIndexed = true;
-            series1.Legend = "Legend1";
-            series1.Name = "SharkTrajectory";
-            series1.XValueMember = "_sharkTrajectoryX";
-            series1.YValueMembers = "_sharkTrajectoryY";
-            series1.YValuesPerPoint = 2;
-            this.TrackPlot.Series.Add(series1);
             this.TrackPlot.Size = new System.Drawing.Size(491, 300);
             this.TrackPlot.TabIndex = 34;
             this.TrackPlot.Text = "TrackPlot";
-            this.TrackPlot.Click += new System.EventHandler(this.TrackPlot_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadXMLFileToolStripMenuItem,
+            this.calibrationToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1246, 28);
+            this.menuStrip1.TabIndex = 36;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // calibrationToolStripMenuItem
+            // 
+            this.calibrationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.calibrateToolStripMenuItem});
+            this.calibrationToolStripMenuItem.Name = "calibrationToolStripMenuItem";
+            this.calibrationToolStripMenuItem.Size = new System.Drawing.Size(56, 24);
+            this.calibrationToolStripMenuItem.Text = "Tools";
+            // 
+            // loadXMLFileToolStripMenuItem
+            // 
+            this.loadXMLFileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadXMLFileToolStripMenuItem1});
+            this.loadXMLFileToolStripMenuItem.Name = "loadXMLFileToolStripMenuItem";
+            this.loadXMLFileToolStripMenuItem.Size = new System.Drawing.Size(50, 24);
+            this.loadXMLFileToolStripMenuItem.Text = "Files";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(562, 236);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 37;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(562, 264);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 22);
+            this.textBox2.TabIndex = 38;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(562, 292);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(100, 23);
+            this.button3.TabIndex = 39;
+            this.button3.Text = "Add Point";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(562, 380);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 22);
+            this.textBox3.TabIndex = 40;
+            // 
+            // butFront
+            // 
+            this.butFront.Location = new System.Drawing.Point(571, 408);
+            this.butFront.Name = "butFront";
+            this.butFront.Size = new System.Drawing.Size(75, 23);
+            this.butFront.TabIndex = 41;
+            this.butFront.Text = "butFront";
+            this.butFront.UseVisualStyleBackColor = true;
+            this.butFront.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // calibrateToolStripMenuItem
+            // 
+            this.calibrateToolStripMenuItem.Name = "calibrateToolStripMenuItem";
+            this.calibrateToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.calibrateToolStripMenuItem.Text = "Calibrate";
+            this.calibrateToolStripMenuItem.Click += new System.EventHandler(this.calibrateToolStripMenuItem_Click);
+            // 
+            // loadXMLFileToolStripMenuItem1
+            // 
+            this.loadXMLFileToolStripMenuItem1.Name = "loadXMLFileToolStripMenuItem1";
+            this.loadXMLFileToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
+            this.loadXMLFileToolStripMenuItem1.Text = "Load XML File";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(995, 526);
+            this.ClientSize = new System.Drawing.Size(1246, 526);
+            this.Controls.Add(this.butFront);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.TrackPlot);
             this.Controls.Add(this.label29);
             this.Controls.Add(this.label28);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lstBack);
+            this.Controls.Add(this.lstFront);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.label24);
@@ -426,12 +550,12 @@
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label19);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label13);
+            this.Controls.Add(this.lblAUVY);
+            this.Controls.Add(this.lblAUVX);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
+            this.Controls.Add(this.lblSharkY);
+            this.Controls.Add(this.lblSharkX);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
@@ -442,10 +566,14 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.TrackPlot)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -463,10 +591,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblSharkX;
+        private System.Windows.Forms.Label lblSharkY;
+        private System.Windows.Forms.Label lblAUVY;
+        private System.Windows.Forms.Label lblAUVX;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
@@ -483,11 +611,21 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox lstFront;
+        private System.Windows.Forms.ListBox lstBack;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.DataVisualization.Charting.Chart TrackPlot;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem calibrationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadXMLFileToolStripMenuItem;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button butFront;
+        private System.Windows.Forms.ToolStripMenuItem loadXMLFileToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem calibrateToolStripMenuItem;
     }
 }
 
